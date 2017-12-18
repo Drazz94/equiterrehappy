@@ -1,6 +1,9 @@
-<?php require('../c/redirection.php');?>
-<?= $redirection ?>
+<?php 
+	session_start();
+	require('../c/redirection.php');
 ?>
+<?= $redirection ?>
+
 
 <!DOCTYPE html>
 <html>
