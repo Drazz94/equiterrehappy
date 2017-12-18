@@ -1,0 +1,14 @@
+body{
+    text-align: center;
+    font-family: sans-serif;
+    font-size: large;
+    font-style:oblique;
+    font-weight: bolder;
+    background-image: url(../ressources/photo-cheval.jpg);
+    background-position: 50% 0%
+        ;
+}
+
+body .bouton{
+    height: 120%;
+}

@@ -1,5 +1,4 @@
 <?php
-	session_start();
 	
 	$page = $_GET['page'];
 	$tri = $_GET['tri'];
