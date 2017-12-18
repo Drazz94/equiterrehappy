@@ -14,7 +14,7 @@ function calcul_nb_page ($nb_ligne, $count, $tri, $page){
     echo 'Page : ';
 
     for($i=1; $i<=$nb_page; $i++){
-        echo '<a href="afficher_tout.php?n_page='.$i.'&page='.$table.'&tri='.$tri.'">'.$i.'</a> - ';
+        echo '<a href="afficher_tout.php?n_page='.$i.'&page='.$table.'&tri='.$tri.'"><button>'.$i.'</button></a> - ';
     }
 	echo '</div>';
     

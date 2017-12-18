@@ -1,0 +1,25 @@
+#external-events {
+
+    float: left;
+    width: 150px;
+    padding: 0 10px;
+    border: 1px solid #ccc;
+    background: #eee;
+    text-align: left;
+    display: block;
+    color: green;
+    font-weight: bold;
+
+}
+
+body {
+    margin: 40px 10px;
+    padding: 0;
+    font-family: "Lucida Grande", "Helvetica", "Arial", "Verdana", "sans-serif";
+    font-size: 14px;
+}
+
+#calendar {
+    max-width: 900px;
+    margin: 0 auto;
+}
