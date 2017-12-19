@@ -2,7 +2,7 @@
 
 	function modifier($page, $id) {
 				
-		include 'c:/wamp64/www/eth/c/liaison_bdd.php';
+		include '../c/liaison_bdd.php';
 		
 		if($page == 'clients') {
 				 

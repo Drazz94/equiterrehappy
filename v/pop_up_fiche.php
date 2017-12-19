@@ -3,8 +3,8 @@
 	
 	function pop_up_fiche ($page, $donnees) {
 		
-		include 'c:/wamp64/www/eth/c/liaison_bdd.php';
-		require_once 'c:/wamp64/www/eth/m/nom_colonnes.php';
+		include '../c/liaison_bdd.php';
+		require_once '../m/nom_colonnes.php';
 		
 		$req = nom_colonnes($page);
 			
@@ -25,7 +25,7 @@
 									</button>
 								</div>
 								<div class="modal-body">
-									<form action="/eth/c/modifier_objet.php" method="POST">
+									<form action="../c/modifier_objet.php" method="POST">
 										<input type="hidden" value="'.$donnees['id'].'" name="id">
 										<input type="hidden" value="'.$page.'" name="page">';
 										for($i = 1;$i<count($champs);$i++) {
@@ -39,7 +39,7 @@
 										</button>
 									</form>
 									</br>
-									<form action="/eth/c/supprimer.php" method="POST">
+									<form action="../c/supprimer.php" method="POST">
 										<input type="hidden" value="'.$donnees['id'].'" name="id">
 										<input type="hidden" value="'.$page.'" name="page">
 										<button type="submit">
