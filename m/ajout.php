@@ -171,7 +171,7 @@
 				if(!empty($result)){
 					$resultat = '<div class="container">L\'employé existe deja dans la base de données.</div>';
 				} else {
-					$req = $bdd ->prepare('INSERT INTO clients(nom, prenom, adresse, mail, telephone) VALUES(:nom, :prenom, :adresse, :mail, :telephone)');
+					$req = $bdd ->prepare('INSERT INTO employes(nom, prenom, adresse, mail, telephone) VALUES(:nom, :prenom, :adresse, :mail, :telephone)');
 					$req->execute(array(
 						'nom' => $nom,
 						'prenom' => $prenom,
