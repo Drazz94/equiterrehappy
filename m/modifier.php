@@ -5,8 +5,7 @@
 		include '../c/liaison_bdd.php';
 		
 		if($page == 'clients') {
-				 
-				 
+				 			 
 			if(preg_match('#^[a-z0-9._-]+@[a-z0-9._-]{2,}\.[a-z]{2,4}$#i', $_POST['mail']) && preg_match("#^0[0-9]([_. ]?[0-9]{2}){4}$#", $_POST['telephone'])) {
 			
 				$nom = htmlspecialchars($_POST['nom']);
@@ -20,24 +19,25 @@
 						'mail' => $mail
 					));
 				$result = $req->fetch();
-
-				
+	
 				if(!empty($result)){
 					
 					$resultat = '<div class="container">Un client avec ce mail existe deja dans la base de données.</div>';
 
 				} else {
 					
-					$req = $bdd->prepare('UPDATE clients SET nom = :nom, prenom = :prenom, adresse = :adresse, mail = :mail, telephone = :telephone WHERE id = '.$id);
+					$req = $bdd->prepare('UPDATE clients 
+						SET nom = :nom, prenom = :prenom, adresse = :adresse, mail = :mail, telephone = :telephone 
+						WHERE id = '.$id);
 					$req->execute(array(
 						'nom' => $nom,
 						'prenom' => $prenom,
 						'adresse' => $adresse,
 						'mail' => $mail,
-						'telephone' =>$tel
+						'telephone' => $tel
 					));
 
-					$resultat = '<div class="container"><u>Client Modifié</u></div>';
+						$resultat = '<div class="container"><u>Client Modifié</u></div>';
 				}
 			} else {
 				$resultat = '<div class="container">Adresse mail ou n°de telephone non valide</div>';

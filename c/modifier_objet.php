@@ -5,7 +5,7 @@
 	$page = $_POST['page'];
 	$id = $_POST['id'];
 	
-	include('c:/wamp64/www/eth/v/'.$page.'.html');
+	include('c:/wamp64/www/eth/v/'.$page.'.php');
 	
 	if ($page == 'clients') {
 		if(empty($_POST['nom']) || empty($_POST['prenom']) || empty($_POST['adresse']) || empty($_POST['mail'])|| empty($_POST['telephone']) ){

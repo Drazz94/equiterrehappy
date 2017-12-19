@@ -3,8 +3,8 @@
 	$page = $_POST['page'];
 	$id = $_POST['id'];
 	
-	include 'c:/wamp64/www/eth/c/liaison_bdd.php';
-	include 'c:/wamp64/www/eth/v/'.$page.'.html';
+	include '../c/liaison_bdd.php';
+	include '../v/'.$page.'.php';
 	
 	if ($page == 'clients') {
 		$req = $bdd->query('SELECT * FROM posseder WHERE clients_id = '.$id);
