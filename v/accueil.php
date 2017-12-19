@@ -24,6 +24,7 @@
 			.jumbotron {
 				color: black;
 				background: #384452;
+				min-width: 1200px;
 			}
 			#f {
 				padding-top: 10px;
@@ -57,35 +58,13 @@
 		
 	<div class="container">
 		<div class="jumbotron">
-			<center><h1><u>EquiTerreHappy</u></h1><br>
+			<center><h1><u>EQUITERREHAPPY</u></h1><br>
                 Bienvenue <?= $_SESSION['pseudo'];?>
             </center>
 		</div>
-
+		
+		<?php include'../m/m_calendrier.php';?>
+		
 	</div>
-	<div class="container">	
-  <div id="f">
-   <div class="container">
-    <div class="row">
-     <div class="col-lg-12">
-<section>
-    <h1>Ma section de page</h1>
-    <p>Bla bla bla bla
-        <?php include'../m/m_calendrier.php';?>
-    </p>
-</section>
-<section>
-	<h1>2e section</h1>
-	<span>
-	<article>blalbalbablabaok</article>
-	<aside>lolololololololo</aside>
-	</span>
-</section>
-     </div>
-    </div>
-   </div>
-  </div>	
-		</div>
-
 	</body>
 </html>

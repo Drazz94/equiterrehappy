@@ -1,5 +1,4 @@
 #external-events {
-
     float: left;
     width: 150px;
     padding: 0 10px;
@@ -9,17 +8,18 @@
     display: block;
     color: green;
     font-weight: bold;
-
+	height: 715px;
+	width: 230px;
 }
 
 body {
-    margin: 40px 10px;
     padding: 0;
     font-family: "Lucida Grande", "Helvetica", "Arial", "Verdana", "sans-serif";
     font-size: 14px;
 }
 
 #calendar {
+	float: right;
     max-width: 900px;
     margin: 0 auto;
 }
