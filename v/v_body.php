@@ -17,7 +17,7 @@
 
 	</div>
 
-<div id='calendar'></div>
+	<div id='calendar'></div>
 <?php 
 	$content = ob_get_clean();
 ?>

@@ -6,6 +6,7 @@
 	include '../v/'.$page.'.php';
 	include '../c/liaison_bdd.php';
 	require '../m/afficher.php';
+	require '../c/pop_up_fiche.php';
 	
 	$bdd->setAttribute(PDO::ATTR_ERRMODE, PDO::ERRMODE_WARNING);
 
@@ -31,13 +32,12 @@
 		while($donnees = $req->fetch()){
 			echo
 				'<tbody>
-					<td>&nbsp'.$donnees['id'].'&nbsp</td>
+					<td>&nbsp'.pop_up_fiche($page,$donnees).'&nbsp</td>
 					<td>&nbsp'.$donnees['nom'].'&nbsp</td>
 					<td>&nbsp'.$donnees['prenom'].'&nbsp</td>
 					<td>&nbsp'.$donnees['mail'].'&nbsp</td>
 					<td>&nbsp'.$donnees['telephone'].'&nbsp</td>
 					<td>&nbsp'.$donnees['adresse'].'&nbsp</td>
-					<td><a href="../c/supprimer.php"><span class="glyphicon glyphicon-remove"></span> Supprimer </a></td>
 				</tbody>';
 		}
 		echo '</table>';
