@@ -13,7 +13,6 @@
 	if ($page == 'clients') {
 		
 		$req = afficher($page, $tri);
-		
 		echo '
 			<div class="container">
 				<table border="1" cellspacing="5">
@@ -30,9 +29,10 @@
 			</div>';
 		
 		while($donnees = $req->fetch()){
+			$clic = pop_up_fiche($page,$donnees);
 			echo
 				'<tbody>
-					<td>&nbsp'.pop_up_fiche($page,$donnees).'&nbsp</td>
+					<td>&nbsp'.$clic.'&nbsp</td>
 					<td>&nbsp'.$donnees['nom'].'&nbsp</td>
 					<td>&nbsp'.$donnees['prenom'].'&nbsp</td>
 					<td>&nbsp'.$donnees['mail'].'&nbsp</td>
