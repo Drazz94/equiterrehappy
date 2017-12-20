@@ -19,7 +19,7 @@
 		
 			$req3 = $bdd->query('DELETE FROM chevaux WHERE id = '.$req2['id']);
 			
-			$req4 = $bdd->query('DELETE FROM posseder WHERE clients_id = '.$id);
+			$req4 = $bdd->query('DELETE FROM posseder WHERE chevaux_id = '.$req2['id']);
 			
 			$req5 = $bdd->query('DELETE FROM clients WHERE id = '.$id);			
 			

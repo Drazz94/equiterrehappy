@@ -3,7 +3,8 @@
 	require ('../m/ajout.php');
 	
 	$page = $_POST['page'];
-	$nbproprio = $_POST['nbproprio'];
+	
+	
 	
 	include('../v/'.$page.'.php');
 	
@@ -18,6 +19,7 @@
 			echo $resultat;
 		}
 	} else if ($page == 'chevaux') {
+		$nbproprio = $_POST['nbproprio'];
 		if($nbproprio == 1) {
 			if(empty($_POST['nom']) || empty($_POST['age']) || empty($_POST['besoins'])|| empty($_POST['proprio1']) || empty($_POST['pourcentage1'])) {
 				

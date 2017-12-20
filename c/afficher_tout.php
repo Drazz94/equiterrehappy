@@ -64,15 +64,17 @@
 			</div>';
 			
 		while($donnees = $req->fetch()) {
+			$clic = pop_up_fiche($page,$donnees);
+			// print_r($donnees);
 			echo 
 			'<tbody>
-				<td>&nbsp'.$donnees['id'].'&nbsp</td>
+				<td>&nbsp'.$clic.'&nbsp</td>
 				<td>&nbsp'.$donnees['1'].'&nbsp</td>
 				<td>&nbsp'.$donnees['age'].'&nbsp</td>
 				<td>&nbsp'.$donnees['besoins'].'&nbsp</td>
 				<td>&nbsp'.$donnees['pourcentage'].'&nbsp</td>
 				<td>&nbsp'.$donnees['clients_id'].'&nbsp</td>
-				<td>&nbsp'.$donnees['6'].'&nbsp</td>
+				<td>&nbsp'.$donnees['nom'].'&nbsp</td>
 			</tbody>';
 		}
 		echo '</table>';
