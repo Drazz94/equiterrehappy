@@ -7,6 +7,12 @@
 		<link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/css/bootstrap.min.css">
 		<script src="https://ajax.googleapis.com/ajax/libs/jquery/3.2.1/jquery.min.js"></script>
 		<script src="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/js/bootstrap.min.js"></script>
+		<style>
+			#container {
+				margin: 0 auto;
+				width: 100px;
+			}
+		</style>
 	</head>
 
 	<body>
@@ -15,14 +21,12 @@
 			<em><p>Veuillez vous connecter svp</p></em>
 		</div>
 		<center>
-		<div class="container-fluid">
-			<div class="col-sm-3">
-				<form action="/eth/c/connexion.php" method="POST">
-					Identifiant : <input type="text" name="id"><br>
-					Mot de pass : <input type="password" name="pwd"><br>
-					validez : <input type="submit" name="connexion" value="OK">
-				</form>
-			</div>
+		<div class="container">
+			<form action="/eth/c/connexion.php" method="POST">
+				<input type="text" name="id" placeholder="Identifiant"><br>
+				<input type="password" name="pwd" placeholder="Mot de pass"><br><br>
+				<input class="btn btn-primary" type="submit" name="connexion" value="VALIDER">
+			</form>
 		</div>
 		</center>
 	</body>

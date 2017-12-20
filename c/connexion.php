@@ -1,21 +1,21 @@
 <?php
 	session_start();
     session_id();
-	echo $_SESSION['id'];
+	// echo $_SESSION['id'];
 	
-	include './eth/index.php';
+	include '../index.html';
 	
 	if(isset($_POST['connexion'])){
 		if(isset($_SESSION['mail'])){
-			echo 'Vous etes deja connecté';
+			echo '<div class="container">Vous etes deja connecté</div>';
 		}
 		else{
 		   if(empty($_POST['id'])) {
-			  echo "Le champ Pseudo est vide.";
+			  echo '<div class="container">Le champ Pseudo est vide.</div>';
 		   } 
 			else {
 			  if(empty($_POST['pwd'])) {
-				 echo "Le champ Mot de passe est vide.";
+				 echo '<div class="container">Le champ Mot de passe est vide.</div>';
 			  } 
 			  else {       
 				 include './liaison_bdd.php';
@@ -32,7 +32,7 @@
 				$resultat = $req->fetch();
 				
 			if(empty($resultat)) {
-					echo "Le pseudo ou le mot de passe est incorrect, le compte n'a pas été trouvé.";
+					echo '<div class="container">Le pseudo ou le mot de passe est incorrect, le compte n\'a pas été trouvé.</div>';
 				} 
 				else {
 					$id = session_id();

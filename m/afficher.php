@@ -18,7 +18,7 @@
 		} 
 		else if ($page == 'chevaux') {
 			$req = $bdd->query('
-				SELECT ch.id, ch.nom, ch.age, ch.besoins, p.pourcentage, p.clients_id, c.nom
+				SELECT DISTINCT ch.id, ch.nom, ch.age, ch.besoins, p.pourcentage, p.clients_id, c.nom
 				FROM chevaux ch JOIN posseder p ON ch.id = p.chevaux_id JOIN clients c ON c.id = p.clients_id 
 				ORDER BY ch.'.$tri.' 
 				LIMIT ' . $mess_un .' , ' . $nb_lignes
