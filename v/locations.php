@@ -3,7 +3,7 @@
 	require('../c/redirection.php');
 ?>
 <?= $redirection ?>
-?>
+
 
 <DOCTYPE html>
 

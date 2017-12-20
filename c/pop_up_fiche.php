@@ -29,9 +29,10 @@
 									<input type="hidden" value="'.$donnees['id'].'" name="id">
 									<input type="hidden" value="'.$page.'" name="page">';
 									for($i = 1;$i<count($champs);$i++) {
-									
-										echo '<label for="'.$champs[$i].'" >'.$champs[$i].' : </label><input type="text" name="'.$champs[$i].'" value="'.$donnees[$i].'"><br>';
-									
+										
+										if (!preg_match("#id#", $champs[$i])) {
+											echo '<label for="'.$champs[$i].'" >'.$champs[$i].' : </label><input type="text" name="'.$champs[$i].'" value="'.$donnees[$i].'"><br>';
+										}
 									}
 									echo '</br>
 									<button type="submit">

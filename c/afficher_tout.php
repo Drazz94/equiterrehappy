@@ -99,9 +99,10 @@
 			</div>';
 
 		while($donnees = $req->fetch()){
+			$clic = pop_up_fiche($page,$donnees);
 			echo 
 			'<tbody>
-				<td>&nbsp'.$donnees['0'].'&nbsp</td>
+				<td>&nbsp'.$clic.'&nbsp</td>
 				<td>&nbsp'.$donnees['designation'].'&nbsp</td>
 				<td>&nbsp'.$donnees['quantite'].'&nbsp</td>
 				<td>&nbsp'.$donnees['prix_vente'].'&nbsp</td>
@@ -131,9 +132,10 @@
 		</div>';
 		
 		while($donnees = $req->fetch()){
+			$clic = pop_up_fiche($page,$donnees);
 			echo '
 			<tbody>
-				<td>&nbsp'.$donnees['id'].'&nbsp</td>
+				<td>&nbsp'.$clic.'&nbsp</td>
 				<td>&nbsp'.$donnees['nom'].'&nbsp</td>
 				<td>&nbsp'.$donnees['prenom'].'&nbsp</td>
 				<td>&nbsp'.$donnees['mail'].'&nbsp</td>
@@ -163,9 +165,10 @@
 			</div>';
 			
 		while($donnees = $req->fetch()){
+			$clic = pop_up_fiche($page,$donnees);
 			echo'
 			<tbody>
-				<td>&nbsp'.$donnees['id'].'&nbsp</td>
+				<td>&nbsp'.$clic.'&nbsp</td>
 				<td>&nbsp'.$donnees['nom'].'&nbsp</td>
 				<td>&nbsp'.$donnees['prenom'].'&nbsp</td>
 				<td>&nbsp'.$donnees['adresse'].'&nbsp</td>
@@ -196,9 +199,10 @@
 					</thead>
 			</div>';
 		while($donnees = $req->fetch()){
+			$clic = pop_up_fiche($page,$donnees);
 			echo'
 				<tbody>
-					<td>&nbsp'.$donnees['id'].'&nbsp</td>
+					<td>&nbsp'.$clic.'&nbsp</td>
 					<td>&nbsp'.$donnees['nom'].'&nbsp</td>
 					<td>&nbsp'.$donnees['prenom'].'&nbsp</td>
 					<td>&nbsp'.$donnees['adresse'].'&nbsp</td>
@@ -229,10 +233,11 @@
 			</div>';
 
 		while($donnees = $req->fetch()){
+			$clic = pop_up_fiche($page,$donnees);
 			echo '
 			<tbody>
 				<strong>
-					<td>&nbsp'.$donnees['id'].'&nbsp</td>
+					<td>&nbsp'.$clic.'&nbsp</td>
 					<td>&nbsp'.$donnees['nom'].'&nbsp</td>
 					<td>&nbsp'.$donnees['etat'].'&nbsp</td>
 					<td>&nbsp'.$donnees['prix'].'&nbsp</td>
