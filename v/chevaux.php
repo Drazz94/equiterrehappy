@@ -53,17 +53,16 @@
 	<div class="row">
 				<div class="col-md-4">
 	<fieldset>
-        <form action="../c/ajouter_objet.php" method="post">
-			<input type="hidden" name="page" value="chevaux">
-            <label for="nom">nom : </label><input type="text" name="nom" value=""><br> 
-			<label for="age">age : </label><input type="number" name="age" value=""><br>  
-			<label for="besoins">besoins : </label><input type="textarea" name="besoins" value=""><br>
-			<label for="proprio">mail du proprietaire : </label><input type="text" name="proprio" value=""><br>
-			<label for="pourcentage">pourcentage d'appartenance : </label><input type="number" name="pourcentage" value=""><br>
-            <br><input class="btn btn-primary" type="submit" name="valider" value="confirmer">
-        </form>
+		<h2><u>AJOUTER UN CHEVAL</u></h2>
+		<form action="../c/form_cheval.php" method = "POST">
+			<u>Nombre de propriétaire(s) :</u>
+			<input type="radio" name="nbproprio" value="1">1
+			<input type="radio" name="nbproprio" value="2">2
+			<input type="radio" name="nbproprio" value="3">3<br><br>
+			<input class="btn btn-primary" type="submit" name="choisir" value="Confirmer">
+		</form>
 		</div>
-		<div class="col-md-4">
+		<div class="col-md-4"><br>
         <form action="../c/afficher_tout.php?n_page" method="GET">
 			<input type="hidden" name="page" value="chevaux">
             <input class="btn btn-primary" type="submit" name="valider" value="Afficher la liste des chevaux"><br>
@@ -73,6 +72,7 @@
         </form>
 		</div>
 		<div class="col-md-4">
+		<h2><u>RECHERCHE</u></h2>
 		<form action="../c/afficher_recherche.php" method="POST">
 			<input type="hidden" name="page" value="chevaux">
 			<select name="champ" size="1">

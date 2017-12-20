@@ -38,60 +38,177 @@
 			}
 		} else if($page == 'chevaux') {
 			
-			if(preg_match('#^[a-z0-9._-]+@[a-z0-9._-]{2,}\.[a-z]{2,4}$#i', $_POST['proprio'])){
+			if(preg_match('#^[a-z0-9._-]+@[a-z0-9._-]{2,}\.[a-z]{2,4}$#i', $_POST['proprio1'])){
 				$nom = htmlspecialchars($_POST['nom']);				
 				$age = htmlspecialchars($_POST['age']);
 				$besoins = htmlspecialchars($_POST['besoins']);
-				$proprio = htmlspecialchars($_POST['proprio']);
-				$pourcentage = htmlspecialchars($_POST['pourcentage']);
 				
-				$req = $bdd->prepare('SELECT c.mail,c.nom,ch.nom
-						FROM clients c 
-						JOIN posseder p on c.id = p.clients_id
-						JOIN chevaux ch on ch.id = p.chevaux_id
-						WHERE c.mail = :mail
-						AND ch.nom = :nom');
-				$req -> execute(array(
-						'mail' => $proprio,
-						'nom' => $nom
+				$nbproprio = $_POST['nbproprio'];
+				$proprio1 = $_POST['proprio1'];
+				$pourcentage1 = $_POST['pourcentage1'];
+				
+				//RECHERCHE SI LE PROPRIETAIRE EXISTE DANS LA BASE DE DONNEES
+				$req1 = $bdd->prepare('SELECT * FROM clients WHERE mail = :mail');
+				$req1 -> execute(array(
+					'mail' => $proprio1
 					));
-				$result = $req->fetch();
+				$res = $req1->fetch();
 				
-				if(!empty($result)){
-				
-					$resultat = '<div class="container">Le cheval existe deja dans la base de données.</div>';
-				
+				if (empty($res)) {
+					
+					$resultat = '<div class="container">Le propriétaire n\'existe pas !</div>';
+					
 				} else {
-					//on ajoute le cheval dans la base de données
-					$req = $bdd ->prepare('INSERT INTO chevaux(nom, age, besoins) VALUES(:nom, :age, :besoins)');
-					$req->execute(array(
-						'nom' => $nom,
-						'age' => $age,
-						'besoins' => $besoins
-					));
 					
-					//on va chercher l'id du client
-					$req1 = $bdd->prepare('SELECT id FROM clients WHERE mail = :proprio');
-					$req1 -> execute(array(
-							'proprio' => $proprio
-						));
-					$c_id = $req1->fetch();
-					
-					//on va chercher l'id du cheval qui vient d'être ajouté
-					$req2 = $bdd->prepare('SELECT id FROM chevaux WHERE nom = :nom');
-					$req2 -> execute(array(
+					//RECHERCHE SI LE CHEVAL N'EXISTE PAS DEJA DANS LA BASE DE DONNEES
+					$req = $bdd->prepare('SELECT c.mail,c.nom,ch.nom
+							FROM clients c 
+							JOIN posseder p on c.id = p.clients_id
+							JOIN chevaux ch on ch.id = p.chevaux_id
+							WHERE c.mail = :mail
+							AND ch.nom = :nom');
+					$req -> execute(array(
+							'mail' => $proprio1,
 							'nom' => $nom
-					));
-					$ch_id = $req2->fetch();
+						));
+						
+					$result = $req->fetch();
 					
-					//on ajoute le pourcentage d'appartenance
-					$req3 = $bdd->prepare('INSERT INTO posseder(clients_id,chevaux_id,pourcentage) VALUES (:c_id,:ch_id,:pourcentage)');
-					$req3 -> execute(array(
-							'c_id' => $c_id['id'],
-							'ch_id' => $ch_id['id'],
-							'pourcentage' => $pourcentage
-					));
-					$resultat = '<div class="container">Enregistrement terminé</div>';
+					if(!empty($result)){
+					
+						$resultat = '<div class="container">Le cheval existe deja dans la base de données.</div>';
+					
+					} else {
+						//on ajoute le cheval dans la base de données
+						$req = $bdd ->prepare('INSERT INTO chevaux(nom, age, besoins) VALUES(:nom, :age, :besoins)');
+						$req->execute(array(
+							'nom' => $nom,
+							'age' => $age,
+							'besoins' => $besoins
+						));
+			
+						//on va chercher l'id du cheval qui vient d'être ajouté
+						$req2 = $bdd->prepare('SELECT id FROM chevaux WHERE nom = :nom');
+						$req2 -> execute(array(
+								'nom' => $nom
+						));
+						$ch_id = $req2->fetch();
+						
+						if ($nbproprio == 1) { //IL N'Y A QU'UN PROPRIETAIRE
+						
+							//on va chercher l'id du client
+							$proprio1 = htmlspecialchars($_POST['proprio1']);
+							
+							$req1 = $bdd->prepare('SELECT id FROM clients WHERE mail = :proprio');
+							$req1 -> execute(array(
+									'proprio' => $proprio1
+								));
+							$c_id = $req1->fetch();
+							
+							//on ajoute le pourcentage d'appartenance
+							$req3 = $bdd->prepare('INSERT INTO posseder(clients_id,chevaux_id,pourcentage) VALUES (:c_id,:ch_id,:pourcentage)');
+							$req3 -> execute(array(
+									'c_id' => $c_id['id'],
+									'ch_id' => $ch_id['id'],
+									'pourcentage' => $pourcentage1
+							));
+							
+						} else if ($nbproprio == 2) { //IL Y A DEUX PROPRIETAIRE
+						
+							$proprio1 = htmlspecialchars($_POST['proprio1']);
+							$proprio2 = htmlspecialchars($_POST['proprio2']);
+							$pourcentage1 = htmlspecialchars($_POST['pourcentage1']);
+							$pourcentage2 = htmlspecialchars($_POST['pourcentage2']);
+							
+							//RECHERCHE ID DES CLIENTS
+							$req1 = $bdd->prepare('SELECT id
+								FROM clients
+								WHERE mail = :mail');
+							$req1 -> execute(array(
+								'mail' => $proprio1
+							));
+							$res1 = $req1->fetch();
+							
+							$req2 = $bdd->prepare('SELECT id
+								FROM clients
+								WHERE mail = :mail');
+							$req2 -> execute(array(
+								'mail' => $proprio2
+							));
+							
+							$res2 = $req2->fetch();
+							
+							//INSERTION DE LA RELATION ENTRE LE CHEVAL ET LE 1ER PROPRIO
+							$req3 = $bdd->prepare('INSERT INTO posseder(clients_id,chevaux_id,pourcentage) VALUES (:c_id,:ch_id,:pourcentage)');
+							$req3 -> execute(array(
+									'c_id' => $res1['id'],
+									'ch_id' => $ch_id['id'],
+									'pourcentage' => $pourcentage1
+							));
+							
+							//INSERTION DE LA RELATION ENTRE LE CHEVAL ET LE 2EME PROPRIO
+							$req4 = $bdd->prepare('INSERT INTO posseder(clients_id,chevaux_id,pourcentage) VALUES (:c_id,:ch_id,:pourcentage)');
+							$req4 -> execute(array(
+									'c_id' => $res2['id'],
+									'ch_id' => $ch_id['id'],
+									'pourcentage' => $pourcentage2
+							));
+						} else {
+							$proprio1 = htmlspecialchars($_POST['proprio1']);
+							$proprio2 = htmlspecialchars($_POST['proprio2']);
+							$proprio3 = htmlspecialchars($_POST['proprio3']);
+							$pourcentage1 = htmlspecialchars($_POST['pourcentage1']);
+							$pourcentage2 = htmlspecialchars($_POST['pourcentage2']);
+							$pourcentage3 = htmlspecialchars($_POST['pourcentage3']);
+							
+							$req1 = $bdd->prepare('SELECT id
+								FROM clients
+								WHERE mail = :mail');
+							$req1 -> execute(array(
+								'mail' => $proprio1
+							));
+							
+							$res1 = $req1->fetch();
+							
+							$req2 = $bdd->prepare('SELECT id
+								FROM clients
+								WHERE mail = :mail');
+							$req2 -> execute(array(
+								'mail' => $proprio2
+							));
+							
+							$res2 = $req2->fetch();
+							
+							$req3 = $bdd->prepare('SELECT id
+								FROM clients
+								WHERE mail = :mail');
+							$req3 -> execute(array(
+								'mail' => $proprio3
+							));
+							
+							$res3 = $req3->fetch();
+							
+							$req4 = $bdd->prepare('INSERT INTO posseder(clients_id,chevaux_id,pourcentage) VALUES (:c_id,:ch_id,:pourcentage)');
+							$req4 -> execute(array(
+									'c_id' => $res1['id'],
+									'ch_id' => $ch_id['id'],
+									'pourcentage' => $pourcentage1
+							));
+							$req5 = $bdd->prepare('INSERT INTO posseder(clients_id,chevaux_id,pourcentage) VALUES (:c_id,:ch_id,:pourcentage)');
+							$req5 -> execute(array(
+									'c_id' => $res2['id'],
+									'ch_id' => $ch_id['id'],
+									'pourcentage' => $pourcentage2
+							));
+							$req5 = $bdd->prepare('INSERT INTO posseder(clients_id,chevaux_id,pourcentage) VALUES (:c_id,:ch_id,:pourcentage)');
+							$req5 -> execute(array(
+									'c_id' => $res3['id'],
+									'ch_id' => $ch_id['id'],
+									'pourcentage' => $pourcentage3
+							));
+						}
+						$resultat = '<div class="container">Enregistrement terminé</div>';
+					}
 				}
 			} else {
 				$resultat = '<div class="container">Adresse mail non valide</div>';

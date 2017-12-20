@@ -3,6 +3,7 @@
 	require ('../m/ajout.php');
 	
 	$page = $_POST['page'];
+	$nbproprio = $_POST['nbproprio'];
 	
 	include('../v/'.$page.'.php');
 	
@@ -17,14 +18,36 @@
 			echo $resultat;
 		}
 	} else if ($page == 'chevaux') {
-		if(empty($_POST['nom']) || empty($_POST['age']) || empty($_POST['besoins'])|| empty($_POST['proprio']) || empty($_POST['pourcentage'])) {
-			
-			echo '<div class="container">ATTENTION ! Vous n\'avez pas rempli tous les champs</div>';
-			
+		if($nbproprio == 1) {
+			if(empty($_POST['nom']) || empty($_POST['age']) || empty($_POST['besoins'])|| empty($_POST['proprio1']) || empty($_POST['pourcentage1'])) {
+				
+				echo '<div class="container">ATTENTION ! Vous n\'avez pas rempli tous les champs</div>';
+				
+			} else {
+				$resultat = ajout($page);
+				
+				echo $resultat;
+			}
+		} else if ($nbproprio == 2) {
+			if(empty($_POST['nom']) || empty($_POST['age']) || empty($_POST['besoins'])|| empty($_POST['proprio1']) || empty($_POST['pourcentage1']) || empty($_POST['proprio2']) || empty($_POST['pourcentage2'])) {
+				
+				echo '<div class="container">ATTENTION ! Vous n\'avez pas rempli tous les champs</div>';
+				
+			} else {
+				$resultat = ajout($page);
+				
+				echo $resultat;
+			}
 		} else {
-			$resultat = ajout($page);
-			
-			echo $resultat;
+			if(empty($_POST['nom']) || empty($_POST['age']) || empty($_POST['besoins'])|| empty($_POST['proprio1']) || empty($_POST['pourcentage1']) || empty($_POST['proprio2']) || empty($_POST['pourcentage2']) || empty($_POST['proprio3']) || empty($_POST['pourcentage3'])) {
+				
+				echo '<div class="container">ATTENTION ! Vous n\'avez pas rempli tous les champs</div>';
+				
+			} else {
+				$resultat = ajout($page);
+				
+				echo $resultat;
+			}
 		}
 	} else if ($page == 'employes') {
 		if(empty($_POST['prenom']) || empty($_POST['nom']) || empty($_POST['adresse']) || empty($_POST['mail'])|| empty($_POST['tel']) ){
