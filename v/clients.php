@@ -29,8 +29,6 @@
 				width: 110px;
 				display: inline-block;
 				vertical-align: top;
-				font-weight: 900;
-				text-align: center;
 			}
 			fieldset {
 				margin-bottom: 15px;
