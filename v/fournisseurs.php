@@ -20,7 +20,9 @@
 			th {
 				text-align: center;
 				border: 2px solid black;
-				height: 30px				
+				height: 30px;
+				background-color: #90EE90;
+				color: black;	
 			}
 			body {
 				font-weight: bold;
@@ -41,7 +43,7 @@
 				align: right;
 			}
 			.lien_id:link, .lien_id:visited {
-				background-color: #000000;
+				background-color: #90EE90;
 				color: white;
 				padding: 3px 3px;
 				text-align: center;
