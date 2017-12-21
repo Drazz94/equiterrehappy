@@ -11,7 +11,7 @@
 		while($fetch = $req->fetch()) {
 			$champs[] = $fetch['column_name'];
 		}
-		$clic = '<a href = "" data-toggle="modal" data-target="#'.$donnees['id'].'">'.$donnees['id'].'</a>';
+		$clic = '<a class = "lien_id" href = "" data-toggle="modal" data-target="#'.$donnees['id'].'">'.$donnees['id'].'</a>';
 		
 		echo
 			'<td>

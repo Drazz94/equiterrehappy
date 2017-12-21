@@ -88,7 +88,7 @@
 				<table border="1">
 					<thead>
 						<tr>
-							<th>&nbspid produit&nbsp</th>
+							<th>&nbspid&nbsp</th>
 							<th>&nbspDesignation&nbsp</th>
 							<th>&nbspQuantité&nbsp</th>
 							<th>&nbspPrix vente&nbsp</th>

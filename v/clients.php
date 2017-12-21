@@ -38,6 +38,17 @@
 				text-decoration: none;
 				transition: background-color .3s;
 			}
+			.lien_id:link, .lien_id:visited {
+				background-color: #000000;
+				color: white;
+				padding: 3px 3px;
+				text-align: center;
+				text-decoration: none;
+				display: inline-block;
+			}
+			.lien_id:hover, .lien_id:active {
+				background-color: grey;
+			}
 		</style>
 	</head>
 
