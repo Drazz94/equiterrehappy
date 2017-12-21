@@ -13,15 +13,24 @@
 		<link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/css/bootstrap.min.css">
 		<script src="https://ajax.googleapis.com/ajax/libs/jquery/3.2.1/jquery.min.js"></script>
 		<script src="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/js/bootstrap.min.js"></script>
-		<style>
+		<style>		
+			th {
+				text-align: center;
+				border: 2px solid black;
+				height: 30px;
+				background-color: #90EE90;
+				color: black;				
+			}
 			body {
 				font-weight: bold;
+				text-align: center;
 			}
 			label {
 				width: 110px;
 				display: inline-block;
 				vertical-align: top;
-				margin: 6px;
+				font-weight: 900;
+				text-align: center;
 			}
 			fieldset {
 				margin-bottom: 15px;
@@ -39,7 +48,7 @@
 				transition: background-color .3s;
 			}
 			.lien_id:link, .lien_id:visited {
-				background-color: #000000;
+				background-color: #7FFF00;
 				color: white;
 				padding: 3px 3px;
 				text-align: center;
@@ -47,7 +56,7 @@
 				display: inline-block;
 			}
 			.lien_id:hover, .lien_id:active {
-				background-color: grey;
+				background-color: green;
 			}
 		</style>
 	</head>
