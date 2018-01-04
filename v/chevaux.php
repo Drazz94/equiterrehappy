@@ -62,7 +62,7 @@
 		  <li><a href="/eth/v/prestataires.php">PRESTATAIRES</a></li>
     </ul>
     <ul class="nav navbar-nav navbar-right">
-      <li><a href="/eth/index.php"><span class="glyphicon glyphicon-log-in"></span> Se déconnecter</a></li>
+      <li><a href="../c/deconnexion.php"><span class="glyphicon glyphicon-log-in"></span> Se déconnecter</a></li>
     </ul>
   </div>
 </nav>

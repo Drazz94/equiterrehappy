@@ -9,8 +9,7 @@
 		<script src="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/js/bootstrap.min.js"></script>    </head>
 
     <body>
-        <p>
-        VOUS ETES DECONNECTÉ
+        <h1><strong>VOUS ETES DECONNECTÉ</strong></h1>
         <form action="/eth/index.html" method="post">
             <input class="btn btn-primary btn-lg"  type="submit" name="valider" value="retour" >
         </form>

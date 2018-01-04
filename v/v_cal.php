@@ -4,6 +4,7 @@
 <head>
     <meta charset="utf-8">
     <title>Calendrier</title>
+	<link rel="stylesheet" href="../css/modale.css">
     <link rel="stylesheet" href="../css/fullcalendar.css">
     <link rel="stylesheet" href="../css/calendrier.css">
     <link rel="stylesheet" href="../css/fullcalendar.min.css">
@@ -20,8 +21,8 @@
 </head>
 
 <body>
-    <?php require('../v/v_body.php');?>
-    <?= $content ?>
+    <?php require('../m/aj_reservation.php');?>
+    <?= $html ?>
 </body>
 
 </html>
