@@ -1,6 +1,7 @@
 <?php
   require('../m/facture.php');
   include('../v/facture.php');
+  require('../m/insert_montant.php');
 
   $id = $_POST['id'];
   $date = $_POST['date'];
@@ -181,4 +182,5 @@
     </body>
     </html>
     ';
+    insert_montant($montant_facture,$facture['id_facture']);
 ?>
