@@ -34,7 +34,7 @@
 		}
 		else if ($page == 'produits') {
 			$req = $bdd->query('
-				SELECT pr.id, pr.designation, pr.quantite, pr.prix_vente, pr.prix_achat, f.id, f.mail
+				SELECT pr.id, pr.designation, pr.quantite, pr.prix_vente, pr.prix_achat, pr.img, f.mail
 				FROM produits pr JOIN fournir fo ON pr.id = fo.produits_id JOIN fournisseurs f on f.id = fo.fournisseurs_id ORDER BY pr.'.$tri.' 
 				LIMIT ' . $mess_un .' , ' . $nb_lignes
 			);

@@ -79,13 +79,14 @@
 	<div class="container-fluid">
 	<div class="row">
 				<div class="col-md-4">
-        <form action="../c/ajouter_objet.php" method="post">
+        <form action="../c/ajouter_objet.php" method="post"   enctype="multipart/form-data">
 			<input type="hidden" name="page" value="produits">
 			<label for="designation">designation : </label><input type="text" name="designation" value=""><br>  
 			<label for="quantite">quantité : </label><input type="number" name="quantite" value=""><br>
 			<label for="prix_vente">prix de vente : </label><input type="float" name="prix_vente" value=""><br>
 			<label for="prix_achat">prix d'achat : </label><input type="float" name="prix_achat" value=""><br>
 			<label for="fournisseur">mail du fournisseur : </label><input type="text" name="fournisseur" value=""><br>
+            Image :<input type="file" name="img">
             <br><input class="btn btn-primary" type="submit" name="valider" value="confirmer">
         </form>
 		</div>

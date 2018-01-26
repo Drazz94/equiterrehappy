@@ -67,7 +67,6 @@
       $pension = $_POST['pension'];
 
       $info_pension = array(
-        'pension' => $pension,
         'cheval_pension' => $cheval_pension,
         'nb_pension' => $nb_pension
       );
@@ -93,92 +92,9 @@
       );
       $informations = array_merge($informations,$info_travail);
     }
-    if($service[$i] == 'copeaux') {
-      $cheval_copeaux = $_POST['cheval_copeaux'];
-      $info_copeaux = array('cheval_copeaux' => $cheval_copeaux);
-      $informations = array_merge($informations,$info_copeaux);
-    }
   }
-  $facture = creer_facture($informations);
-  $montant_facture = 0;
 
-  echo '<br>
-  <div class="invoice-box">
-        <table cellpadding="0" cellspacing="0">
-            <tr class="top">
-                <td colspan="2">
-                    <table>
-                        <tr>
-                            <td class="title">
-                              EQUITERREHAPPY !
-                            </td>
-                            <td>
-                                <h2>Facture #'.$facture['id_facture'].'</h2><br>
-                                Created: '.$date.' '.$date1.'<br>
-                            </td>
-                        </tr>
-                    </table>
-                </td>
-            </tr>';
-    echo '
-         <tr class="heading">
-              <td>
-                  Description
-              </td>
-              <td>
-                  Prix (en €)
-              </td>
-          </tr>';
-    for($i=0; $i<COUNT($service); $i++) {
-      if($service[$i] == 'soins') {
-        echo '
-          <tr class="item">
-          <td>SOINS<br>'.$facture['prestation'].' (par '.$facture['nom_pr'].' '.$facture['prenom_pr'].')<br>
-          Concerne : '.$facture['cheval_soins'].'<br>
-          Comprend : ('.$facture['prix_deplacement'].'€ de déplacement et '.$facture['prix_refacture'].'€ de soins)</td>
-          <td>'.$facture['montant_soin'].'</td></tr>';
-        $montant_facture = $montant_facture + $facture['montant_soin'];
-      }
-      if($service[$i] == 'pension') {
-        echo '
-          <tr class="item">
-          <td>PENSION<br>'.$facture['pension'].'<br>
-          Concerne : '.$facture['cheval_pension'].'<br>
-        <td>'.$facture['prix'].'</td></tr>';
-        $montant_facture = $montant_facture + $facture['prix'];
-      }
-      if($service[$i] == 'location') {
-        echo '
-          <tr class="item">
-            <td>Location de : '.$facture['location'].'<br>
-            Sur la période du '.$facture['debut'].' au '.$facture['fin'].'</td>
-          <td>'.$facture['montant_loc'].'</td></tr>';
-          $montant_facture = $montant_facture + $facture['montant_loc'];
-      }
-      if($service[$i] == 'vente') {
-        echo '
-          <tr class="item">
-          <td>VENTE<br>'.$facture['produit'].'<br>
-          Quantité : '.$facture['quantite'].'</td>
-          <td>'.$facture['montant_vente'].'</td></tr>';
-          $montant_facture = $montant_facture + $facture['montant_vente'];
-      }
-      if($service[$i] == 'copeaux') {
-        echo '<tr class="item">
-          <td>SUPPLÉMENT COPEAUX<br>
-          Concerne : '.$facture['cheval_copeaux'].'</td>
-          <td>'.$facture['montant_copeaux'].'</td></tr>';
-          $montant_facture = $montant_facture + $facture['montant_copeaux'];
-      }
-    }
-          echo '
-            <tr class="total">
-              <td></td>
-              <td><h3><u>Total TTC :</u> '.$montant_facture.'</h3></td>
-            </tr>
-          </table>
-      </div><br><br>
-    </body>
-    </html>
-    ';
+  // creer_facture($informations);
+
+  
 ?>

@@ -1,3 +1,10 @@
+<style>
+    .img{
+          width:150px;
+          height:150px;
+    }
+</style>
+
 <?php
 
 	$page = $_GET['page'];
@@ -84,12 +91,13 @@
 		$req = afficher($page, $tri);
 
 		echo '
-			<div class="container">
+			<div class="container_p">
 				<table border="1">
 					<thead>
 						<tr>
 							<th>&nbspid&nbsp</th>
 							<th>&nbspDesignation&nbsp</th>
+                            <th>&nbspImage&nsbp</th>
 							<th>&nbspQuantité&nbsp</th>
 							<th>&nbspPrix vente&nbsp</th>
 							<th>&nbspPrix achat&nbsp</th>
@@ -104,6 +112,7 @@
 			'<tbody>
 				<td>&nbsp'.$clic.'&nbsp</td>
 				<td>&nbsp'.$donnees['designation'].'&nbsp</td>
+                <td>&nbsp<img src="'.$donnees['img'].'" class="img">&nbsp</td>
 				<td>&nbsp'.$donnees['quantite'].'&nbsp</td>
 				<td>&nbsp'.$donnees['prix_vente'].'&nbsp</td>
 				<td>&nbsp'.$donnees['prix_achat'].'&nbsp</td>

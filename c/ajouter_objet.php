@@ -1,4 +1,7 @@
 <?php
+
+error_log('img'.$_FILES['img']['name']);
+
 	include ('../c/liaison_bdd.php');
 	require ('../m/ajout.php');
 	
@@ -65,6 +68,7 @@
 			echo '<div class="container">ATTENTION ! Vous n\'avez pas rempli tous les champs</div>';
 			
 		} else {
+         
 			$resultat = ajout($page);
 			
 			echo $resultat;

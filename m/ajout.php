@@ -221,7 +221,8 @@
 				$fournisseur = htmlspecialchars($_POST['fournisseur']);
 				$prix_vente = htmlspecialchars($_POST['prix_vente']);
 				$prix_achat = htmlspecialchars($_POST['prix_achat']);
-
+                
+                
 				$req = $bdd->prepare('SELECT pr.designation
 						FROM produits pr
 						JOIN fournir fo ON pr.id = fo.produits_id
@@ -237,13 +238,16 @@
 				if(!empty($result)){
 					$resultat = '<div class="container">Le produit existe deja dans la base de données.</div>';
 				} else {
+             $target = '../ressources/produit/'.$_FILES['img']['name'];
+            move_uploaded_file($_FILES['img']['tmp_name'], $target);
 					//on ajoute le produit dans la base de données
-					$req = $bdd ->prepare('INSERT INTO produits(designation, quantite, prix_vente, prix_achat) VALUES(:designation, :quantite, :prix_vente, :prix_achat)');
+					$req = $bdd ->prepare('INSERT INTO produits(designation, quantite, prix_vente, prix_achat, img) VALUES(:designation, :quantite, :prix_vente, :prix_achat, :img)');
 					$req->execute(array(
 						'designation' => $designation,
 						'quantite' => $quantite,
 						'prix_vente' => $prix_vente,
-						'prix_achat' => $prix_achat
+						'prix_achat' => $prix_achat,
+                        'img' => $target
 					));
 
 					//on va chercher l'id du fournisseur
