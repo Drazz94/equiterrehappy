@@ -1,4 +1,4 @@
-<?php 
+<?php
 	session_start();
 	require('../c/redirection.php');
 ?>
@@ -13,13 +13,13 @@
 		<link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/css/bootstrap.min.css">
 		<script src="https://ajax.googleapis.com/ajax/libs/jquery/3.2.1/jquery.min.js"></script>
 		<script src="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/js/bootstrap.min.js"></script>
-		<style>		
+		<style>
 			th {
 				text-align: center;
 				border: 2px solid black;
 				height: 30px;
 				background-color: #90EE90;
-				color: black;				
+				color: black;
 			}
 			body {
 				font-weight: bold;
@@ -56,6 +56,9 @@
 			.lien_id:hover, .lien_id:active {
 				background-color: green;
 			}
+			.nbpage {
+				margin-left: -670px;
+			}
 		</style>
 	</head>
 
@@ -85,16 +88,16 @@
 				<div class="col-md-4">
 					<form action="../c/ajouter_objet.php" method="post">
 						<input type="hidden" name="page" value="clients">
-						<label for="nom" class="inline">nom : </label><input type="text" name="nom" value=""><br> 
-						<label for="prenom" class="inline">prenom : </label><input type="text" name="prenom" value=""><br> 
-						<label for="adresse" class="inline">adresse : </label><input type="text" name="adresse" value=""><br> 
-						<label for="mail" class="inline">mail : </label><input type="text" name="mail" value=""><br> 
+						<label for="nom" class="inline">nom : </label><input type="text" name="nom" value=""><br>
+						<label for="prenom" class="inline">prenom : </label><input type="text" name="prenom" value=""><br>
+						<label for="adresse" class="inline">adresse : </label><input type="text" name="adresse" value=""><br>
+						<label for="mail" class="inline">mail : </label><input type="text" name="mail" value=""><br>
 						<label for="tel" class="inline">N° de telephone :  </label><input type="text" name="tel" value=""><br>
 						<br><input class="btn btn-primary" type="submit" name="valider" value="valider">
 					</form>
 					<br>
 				</div>
-				
+
 				<div class="col-md-4">
 					<form action="../c/afficher_tout.php?n_page=" method="GET">
 						<input type="hidden" name="page" value="clients">

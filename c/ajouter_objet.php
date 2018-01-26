@@ -4,8 +4,6 @@
 	
 	$page = $_POST['page'];
 	
-	
-	
 	include('../v/'.$page.'.php');
 	
 	if ($page == 'clients') {
