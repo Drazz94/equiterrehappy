@@ -267,6 +267,29 @@ echo '
 				</table><br>
 			';
 		}
+		if($service[$i] == 'copeaux') {
+			echo '<table border="1">
+				<thead>
+					<tr>
+						<th>Services</th>
+						<th>N°Cheval</th>
+					</tr>
+				</thead>
+				<tbody>
+				<td align="center"><input type="text" name="service[]" value="'.$service[$i].'"></td>
+					<td>
+						<select name="cheval_copeaux">';
+			$req7 = cheval($id);
+			while($donnees = $req7->fetch()) {
+				echo '<option value='.$donnees['id'].'>'.$donnees['nom'].'</option>';
+			}
+			echo '
+					</select>
+				</td>
+				</tbody>
+				</table><br>
+			';
+		}
 	}
 	echo '
 		<input type="submit" name="creer" value="Créer la facture">
