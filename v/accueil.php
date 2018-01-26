@@ -63,8 +63,33 @@
             </center>
 		</div>
 		
-		<?php include'../m/m_calendrier.php';?>
-		
+        <div class="container">
+  <ul class="nav nav-tabs">
+    <li><a href="../v/accueil.php?page=lo">Planning des Location</a></li>
+    <li><a href="../v/accueil.php?page=em">Planning des employés</a></li>
+    <li><a href="../v/accueil.php?page=ch">Planning des chevaux</a></li>
+  </ul>
+  <br>
+		<?php 
+            
+            
+            if(!isset($_GET['page'])){
+                $_GET['page'] = 'lo';
+            }
+                        $_SESSION['nom_page'] = $_GET['page'];
+
+            include'../m/m_calendrier.php';
+            
+            if(isset($_POST['sess'])){
+                      $requete = $bdd->prepare('SELECT * FROM clients WHERE id = :id');
+        $requete->execute(array('id'=> $_SESSION['test']));
+        $donne= $requete->fetch();
+    echo '<br>'.$donne['prenom'].' '.$donne['nom'].'<br>'.$donne['mail'].'<br>'.$donne['telephone'].'<br>';
+       
+            }
+           
+        ?>
+        </div>
 	</div>
 	</body>
 </html>

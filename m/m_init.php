@@ -43,6 +43,11 @@
                 events: '../m/events.php',
                 droppable: true,
                 editable: true,
+                 eventRender: function(event, element) {
+      $(element).tooltip({title: event.title});             
+  },
+         
+        
 
                 <?php $init = ob_get_clean();?>
 

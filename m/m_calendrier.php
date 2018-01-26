@@ -9,7 +9,7 @@
 
     $(document).ready(function() {
 	
-	<?= $modale ?>
+	<?php if($_SESSION['nom_page'] == 'em' || $_SESSION['nom_page'] =='lo'){ echo $modale; } else{ echo "";}; ?>
     <?= $init ?>
     <?= $moove ?>
     <?= $resize ?>

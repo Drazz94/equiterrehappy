@@ -1,6 +1,7 @@
 <script>
-<?php ob_start()?>
+<?php ob_start();?>
     
+
 var modal = document.getElementById('myModal');
 
 var btn = document.getElementById("myBtn");
@@ -19,6 +20,7 @@ window.onclick = function(event) {
     if (event.target == modal) {
         modal.style.display = "none";
     }
+
 }
 
 <?php $modale = ob_get_clean();?>
