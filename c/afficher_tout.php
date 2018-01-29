@@ -23,9 +23,9 @@ if ($page == 'clients') {
 		echo '
 			<div class="container">
 				<div class="row">
-				<div class="col-md-offset-2 col-md-11">
+				<div class="col-md-offset-1 col-md-11">
 					<br>
-					<table  border= >
+					<table border="1" >
 						<thead>
 							<tr>
 								<th>&nbspid&nbsp</th>
@@ -51,7 +51,7 @@ if ($page == 'clients') {
 					</tr>
 				';
 		}
-		echo '</div></div></div></table></tbody>';
+		echo '</div></div></div></tbody></table>';
 
 
 	}
@@ -61,77 +61,88 @@ if ($page == 'clients') {
 
 		echo '
 			<div class="container">
-				<table border="1">
-					<thead>
-						<tr>
-							<th>&nbspid&nbsp</th>
-							<th>&nbspNom&nbsp</th>
-							<th>&nbspAge&nbsp</th>
-							<th>&nbspBesoins&nbsp</th>
-							<th>&nbspPourcentage&nbsp</th>
-							<th>&nbspNom Propriétaire&nbsp</th>
-						</tr>
-					</thead>
-			</div>';
+				<div class="row">
+				<div class="col-md-offset-1 col-md-11">
+					<br>
+					<table  border= >
+						<thead>
+							<tr>
+								<th>&nbspid&nbsp</th>
+								<th>&nbspNom&nbsp</th>
+								<th>&nbspAge&nbsp</th>
+								<th>&nbspBesoins&nbsp</th>
+								<th>&nbspPourcentage&nbsp</th>
+								<th>&nbspNom Propriétaire&nbsp</th>
+							</tr>
+					</thead><tbody>';
 
 		while($donnees = $req->fetch()) {
 			$clic = pop_up_fiche($page,$donnees);
 			// print_r($donnees);
 			echo
-			'<tbody>
-				<td>&nbsp'.$clic.'&nbsp</td>
+			'
+			<tr>
+				<td class="popup">&nbsp'.$clic.'&nbsp</td>
 				<td>&nbsp'.$donnees['1'].'&nbsp</td>
 				<td>&nbsp'.$donnees['age'].'&nbsp</td>
 				<td>&nbsp'.$donnees['besoins'].'&nbsp</td>
 				<td>&nbsp'.$donnees['pourcentage'].'&nbsp</td>
 				<td>&nbsp'.$donnees['nom'].'&nbsp</td>
-			</tbody>';
+			</tr>
+			';
 		}
-		echo '</table>';
+		echo '</div></div></div></tbody></table>';
 
 	} else if($page == 'produits') {
 
 		$req = afficher($page, $tri);
 
 		echo '
-			<div class="container_p">
-				<table border="1">
+			<div class="container">
+				<div class="row">
+					<div class="col-md-offset-1 col-md-11">
+					<br>
+					<table border="">
 					<thead>
 						<tr>
 							<th>&nbspid&nbsp</th>
 							<th>&nbspDesignation&nbsp</th>
-                            <th>&nbspImage&nsbp</th>
+                            <th>&nbspImage&nbsp</th>
 							<th>&nbspQuantité&nbsp</th>
 							<th>&nbspPrix vente&nbsp</th>
 							<th>&nbspPrix achat&nbsp</th>
-							<th>&nbspMail du fournisseur&nbsp</th>
+							<th>&nbspEmail Fournisseur&nbsp</th>
 						</tr>
-					</thead>
-			</div>';
+					</thead><tbody>';
 
 		while($donnees = $req->fetch()){
 			$clic = pop_up_fiche($page,$donnees);
 			echo
-			'<tbody>
-				<td>&nbsp'.$clic.'&nbsp</td>
-				<td>&nbsp'.$donnees['designation'].'&nbsp</td>
-                <td>&nbsp<img src="'.$donnees['img'].'" class="img">&nbsp</td>
-				<td>&nbsp'.$donnees['quantite'].'&nbsp</td>
-				<td>&nbsp'.$donnees['prix_vente'].'&nbsp</td>
-				<td>&nbsp'.$donnees['prix_achat'].'&nbsp</td>
-				<td>&nbsp'.$donnees['mail'].'&nbsp</td>
-			</tbody>';
+			'
+				<tr>
+					<td class="popup">&nbsp'.$clic.'&nbsp</td>
+					<td>&nbsp'.$donnees['designation'].'&nbsp</td>
+					<td>&nbsp<img src="'.$donnees['img'].'" class="img">&nbsp</td>
+					<td>&nbsp'.$donnees['quantite'].'&nbsp</td>
+					<td>&nbsp'.$donnees['prix_vente'].'&nbsp</td>
+					<td>&nbsp'.$donnees['prix_achat'].'&nbsp</td>
+					<td>&nbsp'.$donnees['mail'].'&nbsp</td>
+				</tr>
+			';
 		}
-		echo '</table>';
+		echo '</div></div></div></tbody></table>';
 
 	} else if($page == 'employes') {
 
 		$req = afficher($page, $tri);
 
 		echo '
-		<div class="container">
-			<table border="1">
-				<thead>
+			<div class="container">
+				<div class="row">
+					<div class="col-md-offset-1 col-md-11">
+					<br>
+					<table border="">
+					<thead>
 					<tr>
 						<th>&nbspid&nbsp</th>
 						<th>&nbspNom&nbsp</th>
@@ -140,22 +151,22 @@ if ($page == 'clients') {
 						<th>&nbspTelephone&nbsp</th>
 						<th>&nbspAdresse&nbsp</th>
 					</tr>
-				</thead>
-		</div>';
+				</thead><tbody>';
+
 
 		while($donnees = $req->fetch()){
 			$clic = pop_up_fiche($page,$donnees);
 			echo '
-			<tbody>
-				<td>&nbsp'.$clic.'&nbsp</td>
-				<td>&nbsp'.$donnees['nom'].'&nbsp</td>
-				<td>&nbsp'.$donnees['prenom'].'&nbsp</td>
-				<td>&nbsp'.$donnees['mail'].'&nbsp</td>
-				<td>&nbsp'.$donnees['telephone'].'&nbsp</td>
-				<td>&nbsp'.$donnees['adresse'].'&nbsp</td>
-			</tbody>';
+				<tr>
+					<td class="popup">&nbsp'.$clic.'&nbsp</td>
+					<td>&nbsp'.$donnees['nom'].'&nbsp</td>
+					<td>&nbsp'.$donnees['prenom'].'&nbsp</td>
+					<td>&nbsp'.$donnees['mail'].'&nbsp</td>
+					<td>&nbsp'.$donnees['telephone'].'&nbsp</td>
+					<td>&nbsp'.$donnees['adresse'].'&nbsp</td>
+				</tr>';
 		}
-		echo '</table>';
+		echo '</div></div></div></tbody></table>';
 
 	} else if($page == 'fournisseurs') {
 
@@ -163,9 +174,12 @@ if ($page == 'clients') {
 
 		echo'
 			<div class="container">
-				<table border="1">
+				<div class="row">
+					<div class="col-md-offset-1 col-md-11">
+					<br>
+					<table border="">
 					<thead>
-						<tr>
+					<tr>
 							<th>&nbspid&nbsp</th>
 							<th>&nbspNom&nbsp</th>
 							<th>&nbspPrenom&nbsp</th>
@@ -173,22 +187,24 @@ if ($page == 'clients') {
 							<th>&nbspMail&nbsp</th>
 							<th>&nbspTelephone&nbsp</th>
 						</tr>
-					</thead>
-			</div>';
+					</thead><tbody>
+					';
+
 
 		while($donnees = $req->fetch()){
 			$clic = pop_up_fiche($page,$donnees);
 			echo'
-			<tbody>
-				<td>&nbsp'.$clic.'&nbsp</td>
+			<tr>
+				<td class="popup">&nbsp'.$clic.'&nbsp</td>
 				<td>&nbsp'.$donnees['nom'].'&nbsp</td>
 				<td>&nbsp'.$donnees['prenom'].'&nbsp</td>
 				<td>&nbsp'.$donnees['adresse'].'&nbsp</td>
 				<td>&nbsp'.$donnees['mail'].'&nbsp</td>
 				<td>&nbsp'.$donnees['telephone'].'&nbsp</td>
-			</tbody>';
+			</tr>';
+
 		}
-		echo '</table>';
+		echo '</div></div></div></tbody></table>';
 
 	} else if($page == 'prestataires') {
 
@@ -196,7 +212,10 @@ if ($page == 'clients') {
 
 		echo'
 			<div class="container">
-				<table border="1">
+				<div class="row">
+					<div class="col-md-10">
+					<br>
+					<table border="">
 					<thead>
 						<tr>
 							<th>&nbspid&nbsp</th>
@@ -208,13 +227,13 @@ if ($page == 'clients') {
 							<th>&nbspTelephone&nbsp</th>
 							<th>&nbspPrix_deplacement&nbsp</th>
 						</tr>
-					</thead>
-			</div>';
+					</thead><tbody>
+				';
 		while($donnees = $req->fetch()){
 			$clic = pop_up_fiche($page,$donnees);
 			echo'
-				<tbody>
-					<td>&nbsp'.$clic.'&nbsp</td>
+				<tr>
+					<td class="popup">&nbsp'.$clic.'&nbsp</td>
 					<td>&nbsp'.$donnees['nom'].'&nbsp</td>
 					<td>&nbsp'.$donnees['prenom'].'&nbsp</td>
 					<td>&nbsp'.$donnees['adresse'].'&nbsp</td>
@@ -222,9 +241,9 @@ if ($page == 'clients') {
 					<td>&nbsp'.$donnees['mail'].'&nbsp</td>
 					<td>&nbsp'.$donnees['telephone'].'&nbsp</td>
 					<td>&nbsp'.$donnees['prix_deplacement'].'&nbsp</td>
-				</tbody>';
+				</tr>';
 		}
-		echo '</table>';
+		echo '</div></div></div></tbody></table>';
 
 	} else if($page == 'locations') {
 
@@ -232,7 +251,10 @@ if ($page == 'clients') {
 
 		echo '
 			<div class="container">
-				<table border="1">
+				<div class="row">
+					<div class="col-md-offset-2 col-md-10">
+					<br>
+					<table border="">
 					<thead>
 						<tr>
 							<th>&nbspid&nbsp</th>
@@ -241,23 +263,22 @@ if ($page == 'clients') {
 							<th>&nbspPrix&nbsp</th>
 							<th>&nbspType&nbsp</th>
 						</tr>
-					</thead>
-			</div>';
+					</thead><tbody>';
+
 
 		while($donnees = $req->fetch()){
 			$clic = pop_up_fiche($page,$donnees);
 			echo '
-			<tbody>
-				<strong>
-					<td>&nbsp'.$clic.'&nbsp</td>
+				<tr>
+					<td class="popup">&nbsp'.$clic.'&nbsp</td>
 					<td>&nbsp'.$donnees['nom'].'&nbsp</td>
 					<td>&nbsp'.$donnees['etat'].'&nbsp</td>
 					<td>&nbsp'.$donnees['prix'].'&nbsp</td>
 					<td>&nbsp'.$donnees['designation'].'&nbsp</td>
-				</strong>
-			</tbody>';
+				</tr>
+			';
 		}
-		echo '</table>';
+		echo '</div></div></div></tbody></table>';
 
 	}
 ?>

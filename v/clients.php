@@ -14,14 +14,8 @@
 		<script src="https://ajax.googleapis.com/ajax/libs/jquery/3.2.1/jquery.min.js"></script>
 		<script src="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/js/bootstrap.min.js"></script>
 		<style>
-			.dropbtn {
-				display: inline-block;
-				background-color: #81F79F;
-				color: black;
-				padding: 11px;
-				font-size: 16px;
-				border: 1 px solid;
-				text-decoration: none;
+			td {
+				background-color: #f2f2f2;
 			}
 			.btn {
 				display: inline-block;
@@ -33,7 +27,33 @@
 				text-decoration: none;
 				font-weight: bold;
 			}
-
+			.dropbtn {
+				border-radius: 6px;
+				background-color: light grey;
+				color: dark green;
+				padding: 6px 4px 6px 4px;
+				font-size: 16px;
+				border: 1px solid green;
+				text-decoration: none;
+			}
+			.dropbtn2 {
+				border-radius: 6px;
+				background-color: light green;
+				color: black;
+				padding: 7px 4px 8px 4px;
+				font-size: 16px;
+				border: 1 px solid;
+				text-decoration: none;
+			}
+			.dropbtn3	 {
+				border-radius: 6px;
+				background-color: light green;
+				color: black;
+				padding: 6px 4px 6px 4px;
+				font-size: 16px;
+				border: 1 px solid;
+				text-decoration: none;
+			}
 			.dropdown {
 				position: relative;
 				display: inline-block;
@@ -50,12 +70,14 @@
 
 			.dropdown-content a {
 				color: black;
-				padding: 12px 16px;
+				padding: 12px 12px;
 				text-decoration: none;
 				display: block;
 			}
 
-			.dropdown-content a:hover {background-color: #EFFBEF}
+			.dropdown-content a:hover {
+				background-color: #EFFBEF
+			}
 
 			.dropdown:hover .dropdown-content {
 				display: block;
@@ -64,67 +86,19 @@
 			.dropdown:hover .dropbtn {
 				background-color: #EFFBEF;
 			}
-			
-			.btn:hover {
-				background-color: #81F7BE;
-			}
 			 ul, .dropdown {
 				list-style-type: none;
 				margin: 0;
 				padding: 0;
-				border: 1px solid #e7e7e7;
-				background-color: #81F79F;
+				background-color: #f2f2f2;
 				text-decoration: none;
-			}
-
-			li {
-				float: left;
-				border-right:1px solid #bbb;
-				text-decoration: none;
-			}
-
-			li:last-child {
-				border-right: none;
-			}
-
-			li a {
-				
-				display: inline-block;
-				color: black;
-				text-align: center;
-				text-decoration: none;
-				background-color: #81F79F;
-				color: black;
-				padding: 11px;
-				font-size: 16px;
-				border: 1px solid;
-			
-			}
-			
-			a:hover {
-					background-color: #EFFBEF;
-					text-decoration: none;
-			}
-			
-
-			.active {
-				background-color: #088A4B;
-				text-decoration: none;
-			}
-	
-
-			body {
-				background-image:url(../ressources/eth_logo.png);
-				background-position: right bottom;
-				background-repeat:no-repeat;
-				background-size: 35%;
-				background-attachment:fixed;
-				background-color: #FFF;
-				font-weight: bold;
 			}
 			tbody:nth-child(odd) {
 				background: #f2f2f2;
 			}		
+			td {
+				background-color: #f2f2f2;
+			}
 			th {
 				text-align: center;
 				border: 2px solid black;
@@ -154,19 +128,68 @@
 			.lien_id:hover, .lien_id:active {
 				background-color: #EFFBEF;
 			}
+			li a {
+				border-radius: 6px;
+				display: inline-block;
+				color: white;
+				text-align: center;
+				text-decoration: none;
+				background-color: #E6E6E6;
+				padding: 6px 4px 6px 4px;
+				font-size: 16px;
+				border: 1px solid red;
+			
+			}
+			
+			a:hover {
+					background-color: #EFFBEF;
+					text-decoration: none;
+			}
 
-		</style>		
-    </head>
+			.active {
+				background-color: #DF0101;
+				text-decoration: none;
 
-    <body>
+			}
+	
+
+			body {
+				background-image:url(../ressources/eth_logo.png);
+				background-position: right bottom;
+				background-repeat:no-repeat;
+				background-size: 35%;
+				background-attachment:fixed;
+				background-color: #FFF;
+				font-weight: bold;
+
+			}
+
+			.jumbotron {
+				overflow: hidden;
+				color: black;
+				background-color: #81F79F;
+				min-width: 860px;
+				height: 130px;
+
+			}
+			#f {
+				padding-top: 10px;
+				padding-bottom: 70px;
+				text-align: center;
+			}
+		</style>
+	</head>
+
+	<body>
+	
 	<ul class="nav nav-tabs">
 		<li>
 		<div class="dropdown">
-			<a class="active" href="../v/accueil.php"><span class="glyphicon glyphicon-home"></span>&nbsp&nbspEQUITERREHAPPY</a>
+			<a   class="active" href="../v/accueil.php"><img src ="../ressources/icon_maison.png">&nbspEQUITERREHAPPY</a>
 		</div>
 		<li>
 		<div class="dropdown">
-		  <a class="dropbtn" href="">GESTION CHEVAUX</a>
+		  <a class="dropbtn" href=""><img src ="../ressources/icon_cheval.png">&nbspGESTION CHEVAUX</a>
 		  <div class="dropdown-content">
 			<a href="../v/chevaux.php">Chevaux</a>
 			<a href="../v/prestataires.php">Prestataires</a>
@@ -176,7 +199,7 @@
 		</li>
 		<li>
 		<div class="dropdown">
-		  <a class="dropbtn" href="">GESTION MAGASIN</a>
+		  <a class="dropbtn2" href=""><img src ="../ressources/icon_magasin.png">&nbspGESTION MAGASIN</a>
 		  <div class="dropdown-content">
 			<a href="../v/produits.php">Produits</a>
 			<a href="../v/fournisseurs.php">Fournisseurs</a>
@@ -185,7 +208,7 @@
 		</li>
 		<li>
 		<div class="dropdown">
-		  <a class="dropbtn" href="">GESTION LOCATIONS</a>
+		  <a class="dropbtn" href=""><img src ="../ressources/icon_location.png">&nbspGESTION LOCATIONS</a>
 		  <div class="dropdown-content">
 			<a href="../v/locations.php">Locations</a>
 			<a href="../v/accueil.php?page=lo">Planning</a>
@@ -194,26 +217,31 @@
 		</li>
 		<li>
 		<div class="dropdown">
-			<a class="dropbtn" href="../v/clients.php">CLIENTS</a>
+			<a class="dropbtn" href="../v/clients.php"><img src ="../ressources/icon_client.png">&nbspCLIENTS</a>
 		</div>
 		</li>
-		<li>
-		<div class="dropdown">
-			<a class="dropbtn" href="../v/employes.php">EMPLOYÉS</a>
-		</div>
-		</li>
-
+		<?php
+		if($_SESSION['pseudo']=="Ajulie") {
+			echo '
+				<li>
+				<div class="dropdown">
+					<a class="dropbtn3" href="../v/employes.php"><img src="../ressources/icon_employe.png">&nbspEMPLOYÉS</a>
+				</div>
+				</li>';
+		}
+		?>
 		<li style="float:right">
 		<div class="dropdown">
-			<a class="active" href="../c/deconnexion.php"><span class="glyphicon glyphicon-log-in"></span>&nbsp&nbspDECONNEXION</a>
+			<a class="active" href="../c/deconnexion.php"><img src="../ressources/icon_deco.png">&nbspDECONNEXION</a>
 		</div>	
 		</li>
     </ul>
 	</br>
+	
 	<div class="container">
 		<div class="container-fluid">
 			<div class="row">
-								<div class="col-md-5">
+				<div class="col-md-5">
 					<form action="../c/ajouter_objet.php" method="post">
 						<input type="hidden" name="page" value="clients">
 						<input type="text" name="nom" placeholder="Nom" value="">

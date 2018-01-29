@@ -9,14 +9,19 @@ function calcul_nb_page ($nb_ligne, $count, $tri, $page){
     $nb_page = ceil($nb_mess/$nb_ligne);
 
 	$table = $page;
+	
+	if($page == "clients") {
+		echo '<div class="row"><div class=" col-md-1"><div class="nbpage"><ul class="pagination">';
+	}
+	else {
 
-  echo '<div class="nbpage"><ul class="pagination">';
-
+		echo '<div class="row"><div class="col-md-offset-4 col-md-2"><div class="nbpage"><ul class="pagination">';
+	}
     for($i=1; $i<=$nb_page; $i++){
       echo '<li class="page-item">
         <a class="page-link" href="afficher_tout.php?n_page='.$i.'&page='.$table.'&tri='.$tri.'">'.$i.'</a></li>';
     }
-	echo '</div>';
+	echo '</div></div></div>';
 
 	if(isset($_GET['n_page'])){
 		$n_page = $_GET['n_page'];

@@ -15,8 +15,18 @@
 		<script src="https://ajax.googleapis.com/ajax/libs/jquery/3.2.1/jquery.min.js"></script>
 		<script src="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/js/bootstrap.min.js"></script>
 		<style>
-			.bouton_planning {
-				width: 163px;
+			td {
+				background-color: #f2f2f2;
+			}
+			.btn {
+				display: inline-block;
+				background-color: #81F79F;
+				color: black;
+				padding: 11px;
+				font-size: 16px;
+				border: 1 px solid;
+				text-decoration: none;
+				font-weight: bold;
 			}
 			.dropbtn {
 				border-radius: 6px;
@@ -84,6 +94,38 @@
 				background-color: #f2f2f2;
 				text-decoration: none;
 			}
+			tbody:nth-child(odd) {
+				background: #f2f2f2;
+			}		
+			th {
+				text-align: center;
+				border: 2px solid black;
+				height: 30px;
+				background-color: #81F79F;
+				color: black;	
+			}
+			.popup {
+				background-color: #81F79F;
+			}
+			fieldset {
+				margin-bottom: 15px;
+				padding: 10px;
+			}
+			row {
+				margin-top: -220px;
+				align: right;
+			}	
+			.lien_id:link, .lien_id:visited {
+				background-color: #81F79F;
+				color: black;
+				padding: 3px 10px;
+				text-align: center;
+				text-decoration: none;
+				display: inline-block;
+			}
+			.lien_id:hover, .lien_id:active {
+				background-color: #EFFBEF;
+			}
 
 
 		
@@ -91,13 +133,13 @@
 			li a {
 				border-radius: 6px;
 				display: inline-block;
-				color: black;
+				color: white;
 				text-align: center;
 				text-decoration: none;
-				background-color: #81F79F;
+				background-color: #E6E6E6;
 				padding: 6px 4px 6px 4px;
 				font-size: 16px;
-				border: 1px solid green;
+				border: 1px solid red;
 			
 			}
 			
@@ -107,7 +149,7 @@
 			}
 
 			.active {
-				background-color: #088A4B;
+				background-color: #DF0101;
 				text-decoration: none;
 
 			}
@@ -115,7 +157,7 @@
 
 			body {
 				background-image:url(../ressources/eth_logo.png);
-				background-position: left bottom;
+				background-position: right bottom;
 				background-repeat:no-repeat;
 				background-size: 35%;
 				background-attachment:fixed;
