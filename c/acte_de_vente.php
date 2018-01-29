@@ -15,6 +15,7 @@
 	$prenom = $resultat['prenom'];
 	$mail = $resultat['mail'];
 	$telephone = $resultat['telephone'];
+	$adresse = $resultat['adresse'];
 
 	echo '<div class="droite"><u>Date :</u> '.$date.' '.$date1.'</div>';
 	echo '<div class="gauche"><u>Nom :</u> '.$nom.' '.$prenom.'<br>';
@@ -41,6 +42,7 @@
 								<input type="hidden" name="telephone" value="'.$telephone.'">
 								<input type="hidden" name="date" value="'.$date.'">
 								<input type="hidden" name="heure" value="'.$date1.'">
+								<input type="hidden" name="adresse" value="'.$adresse.'">
 								<label>Services : </label><br>
 								';
 	while($resultat=$req->fetch()) {

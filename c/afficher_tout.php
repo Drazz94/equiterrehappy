@@ -17,37 +17,42 @@
 
 	$bdd->setAttribute(PDO::ATTR_ERRMODE, PDO::ERRMODE_WARNING);
 
-	if ($page == 'clients') {
+if ($page == 'clients') {
 
 		$req = afficher($page, $tri);
 		echo '
 			<div class="container">
-				<table class="table-hover">
-					<thead>
-						<tr>
-							<th>&nbspid&nbsp</th>
-							<th>&nbspNom&nbsp</th>
-							<th>&nbspPrenom&nbsp</th>
-							<th>&nbspMail&nbsp</th>
-							<th>&nbspTelephone&nbsp</th>
-							<th>&nbspAdresse&nbsp</th>
-						</tr>
-					</thead>
-			</div>';
+				<div class="row">
+				<div class="col-md-offset-2 col-md-11">
+					<br>
+					<table  border= >
+						<thead>
+							<tr>
+								<th>&nbspid&nbsp</th>
+								<th>&nbspNom&nbsp</th>
+								<th>&nbspPrenom&nbsp</th>
+								<th>&nbspMail&nbsp</th>
+								<th>&nbspTelephone&nbsp</th>
+								<th>&nbspAdresse&nbsp</th>
+							</tr>
+						</thead><tbody>';
 
 		while($donnees = $req->fetch()){
 			$clic = pop_up_fiche($page,$donnees);
 			echo
-				'<tbody>
-					<td>&nbsp'.$clic.'&nbsp</td>
+				'
+					<tr>
+					<td class="popup">&nbsp'.$clic.'&nbsp</td>
 					<td>&nbsp'.$donnees['nom'].'&nbsp</td>
 					<td>&nbsp'.$donnees['prenom'].'&nbsp</td>
 					<td>&nbsp'.$donnees['mail'].'&nbsp</td>
 					<td>&nbsp'.$donnees['telephone'].'&nbsp</td>
 					<td>&nbsp'.$donnees['adresse'].'&nbsp</td>
-				</tbody>';
+					</tr>
+				';
 		}
-		echo '</table>';
+		echo '</div></div></div></table></tbody>';
+
 
 	}
 	else if($page == 'chevaux') {
@@ -64,7 +69,6 @@
 							<th>&nbspAge&nbsp</th>
 							<th>&nbspBesoins&nbsp</th>
 							<th>&nbspPourcentage&nbsp</th>
-							<th>&nbspNum Propriétaire&nbsp</th>
 							<th>&nbspNom Propriétaire&nbsp</th>
 						</tr>
 					</thead>
@@ -80,7 +84,6 @@
 				<td>&nbsp'.$donnees['age'].'&nbsp</td>
 				<td>&nbsp'.$donnees['besoins'].'&nbsp</td>
 				<td>&nbsp'.$donnees['pourcentage'].'&nbsp</td>
-				<td>&nbsp'.$donnees['clients_id'].'&nbsp</td>
 				<td>&nbsp'.$donnees['nom'].'&nbsp</td>
 			</tbody>';
 		}

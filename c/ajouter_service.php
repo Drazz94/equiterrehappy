@@ -9,6 +9,7 @@
 	$prenom = $_POST['prenom'];
 	$mail = $_POST['mail'];
 	$telephone = $_POST['telephone'];
+	$adresse = $_POST['adresse'];
 
 	$req = choisir_service();
 	$req1 = cheval($id);
@@ -42,6 +43,7 @@
 									<input type="hidden" name="prenom" value="'.$prenom.'">
 									<input type="hidden" name="mail" value="'.$mail.'">
 									<input type="hidden" name="telephone" value="'.$telephone.'">
+									<input type="hidden" name="adresse" value="'.$adresse.'">
 									<input type="hidden" name="date" value="'.$date.'">
 									<input type="hidden" name="heure" value="'.$date1.'">
 									<label>Services : </label><br>
@@ -76,6 +78,7 @@ echo '
 			<input type="hidden" name="telephone" value="'.$telephone.'">
 			<input type="hidden" name="date" value="'.$date.'">
 			<input type="hidden" name="heure" value="'.$date1.'">
+			<input type="hidden" name="adresse" value="'.$adresse.'">
 	';
 	$service = $_POST['service'];
 

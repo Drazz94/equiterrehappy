@@ -15,16 +15,122 @@
 		<script src="https://ajax.googleapis.com/ajax/libs/jquery/3.2.1/jquery.min.js"></script>
 		<script src="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/js/bootstrap.min.js"></script>
 		<style>
-			body {
-				font-weight: bold;
+			.bouton_planning {
+				width: 163px;
 			}
-			h1 {
-				color: FORESTGREEN;
+			.dropbtn {
+				border-radius: 6px;
+				background-color: light grey;
+				color: dark green;
+				padding: 6px 4px 6px 4px;
+				font-size: 16px;
+				border: 1px solid green;
+				text-decoration: none;
 			}
-			.jumbotron {
+			.dropbtn2 {
+				border-radius: 6px;
+				background-color: light green;
 				color: black;
-				background: #384452;
-				min-width: 1200px;
+				padding: 7px 4px 8px 4px;
+				font-size: 16px;
+				border: 1 px solid;
+				text-decoration: none;
+			}
+			.dropbtn3	 {
+				border-radius: 6px;
+				background-color: light green;
+				color: black;
+				padding: 6px 4px 6px 4px;
+				font-size: 16px;
+				border: 1 px solid;
+				text-decoration: none;
+			}
+			.dropdown {
+				position: relative;
+				display: inline-block;
+			}
+
+			.dropdown-content {
+				display: none;
+				position: absolute;
+				background-color: #f9f9f9;
+				min-width: 160px;
+				box-shadow: 0px 8px 16px 0px rgba(0,0,0,0.2);
+				z-index: 1;
+			}
+
+			.dropdown-content a {
+				color: black;
+				padding: 12px 12px;
+				text-decoration: none;
+				display: block;
+			}
+
+			.dropdown-content a:hover {
+				background-color: #EFFBEF
+			}
+
+			.dropdown:hover .dropdown-content {
+				display: block;
+			}
+
+			.dropdown:hover .dropbtn {
+				background-color: #EFFBEF;
+			}
+			 ul, .dropdown {
+				list-style-type: none;
+				margin: 0;
+				padding: 0;
+				background-color: #f2f2f2;
+				text-decoration: none;
+			}
+
+
+		
+
+			li a {
+				border-radius: 6px;
+				display: inline-block;
+				color: black;
+				text-align: center;
+				text-decoration: none;
+				background-color: #81F79F;
+				padding: 6px 4px 6px 4px;
+				font-size: 16px;
+				border: 1px solid green;
+			
+			}
+			
+			a:hover {
+					background-color: #EFFBEF;
+					text-decoration: none;
+			}
+
+			.active {
+				background-color: #088A4B;
+				text-decoration: none;
+
+			}
+	
+
+			body {
+				background-image:url(../ressources/eth_logo.png);
+				background-position: left bottom;
+				background-repeat:no-repeat;
+				background-size: 35%;
+				background-attachment:fixed;
+				background-color: #FFF;
+				font-weight: bold;
+
+			}
+
+			.jumbotron {
+				overflow: hidden;
+				color: black;
+				background-color: #81F79F;
+				min-width: 860px;
+				height: 130px;
+
 			}
 			#f {
 				padding-top: 10px;
@@ -36,60 +142,102 @@
 	</head>
 
 	<body>
-	<nav class="navbar navbar-inverse">
-  <div class="container-fluid">
-    <div class="navbar-header">
-      <a class="navbar-brand" href="accueil.php"><span class="glyphicon glyphicon-home"></span>&nbsp;&nbsp;&nbsp;&nbsp;EquiTerreHappy</a>
-    </div>
-    <ul class="nav navbar-nav">
-          <li><a href="../v/clients.php">CLIENTS</a></li>
-          <li><a href="../v/chevaux.php">CHEVAUX</a></li>
-          <li><a href="../v/produits.php">PRODUITS</a></li>
-		  <li><a href="../v/employes.php">EMPLOYÉS</a></li>
-		  <li><a href="../v/locations.php">LOCATIONS</a></li>
-		  <li><a href="../v/fournisseurs.php">FOURNISSEURS</a></li>
-		  <li><a href="../v/prestataires.php">PRESTATAIRES</a></li>
-    </ul>
-    <ul class="nav navbar-nav navbar-right">
-      <li><a href="../c/deconnexion.php"><span class="glyphicon glyphicon-log-in"></span> Se déconnecter</a></li>
-    </ul>
-  </div>
-</nav>
-		
-	<div class="container">
-		<div class="jumbotron">
-			<center><h1><u>EQUITERREHAPPY</u></h1><br>
-                Bienvenue <?= $_SESSION['pseudo'];?>
-            </center>
+	
+	<ul class="nav nav-tabs">
+		<li>
+		<div class="dropdown">
+			<a   class="active" href="../v/accueil.php"><img src ="../ressources/icon_maison.png">&nbspEQUITERREHAPPY</a>
 		</div>
-		
-        <div class="container">
-  <ul class="nav nav-tabs">
-    <li><a href="../v/accueil.php?page=lo">Planning des Location</a></li>
-    <li><a href="../v/accueil.php?page=em">Planning des employés</a></li>
-    <li><a href="../v/accueil.php?page=ch">Planning des chevaux</a></li>
-  </ul>
-  <br>
-		<?php 
-            
-            
-            if(!isset($_GET['page'])){
-                $_GET['page'] = 'lo';
-            }
-                        $_SESSION['nom_page'] = $_GET['page'];
+		<li>
+		<div class="dropdown">
+		  <a class="dropbtn" href=""><img src ="../ressources/icon_cheval.png">&nbspGESTION CHEVAUX</a>
+		  <div class="dropdown-content">
+			<a href="../v/chevaux.php">Chevaux</a>
+			<a href="../v/prestataires.php">Prestataires</a>
+			<a href="../v/accueil.php?page=ch">Planning</a>
+		  </div>
+		</div>
+		</li>
+		<li>
+		<div class="dropdown">
+		  <a class="dropbtn2" href=""><img src ="../ressources/icon_magasin.png">&nbspGESTION MAGASIN</a>
+		  <div class="dropdown-content">
+			<a href="../v/produits.php">Produits</a>
+			<a href="../v/fournisseurs.php">Fournisseurs</a>
+		  </div>
+		</div>
+		</li>
+		<li>
+		<div class="dropdown">
+		  <a class="dropbtn" href=""><img src ="../ressources/icon_location.png">&nbspGESTION LOCATIONS</a>
+		  <div class="dropdown-content">
+			<a href="../v/locations.php">Locations</a>
+			<a href="../v/accueil.php?page=lo">Planning</a>
+		  </div>
+		</div>
+		</li>
+		<li>
+		<div class="dropdown">
+			<a class="dropbtn" href="../v/clients.php"><img src ="../ressources/icon_client.png">&nbspCLIENTS</a>
+		</div>
+		</li>
+		<?php
+		if($_SESSION['pseudo']=="Ajulie") {
+			echo '
+				<li>
+				<div class="dropdown">
+					<a class="dropbtn3" href="../v/employes.php"><img src="../ressources/icon_employe.png">&nbspEMPLOYÉS</a>
+				</div>
+				</li>';
+		}
+		?>
+		<li style="float:right">
+		<div class="dropdown">
+			<a class="active" href="../c/deconnexion.php"><img src="../ressources/icon_deco.png">&nbspDECONNEXION</a>
+		</div>	
+		</li>
+    </ul>
+	</br>
 
-            include'../m/m_calendrier.php';
-            
-            if(isset($_POST['sess'])){
-                      $requete = $bdd->prepare('SELECT * FROM clients WHERE id = :id');
-        $requete->execute(array('id'=> $_SESSION['test']));
-        $donne= $requete->fetch();
-    echo '<br>'.$donne['prenom'].' '.$donne['nom'].'<br>'.$donne['mail'].'<br>'.$donne['telephone'].'<br>';
-       
-            }
-           
-        ?>
-        </div>
+	<div class="container">
+		<div class="row">
+			<div class="col-md-2">
+					<ul class="nav nav-tabs">
+						<li><a  href="../v/accueil.php?page=lo">Planning Locations</a></li><br>
+						<li><a  href="../v/accueil.php?page=em">Planning Employés</a></li><br>
+						<li><a class="bouton_planning" href="../v/accueil.php?page=ch">Planning Chevaux</a></li><br>
+					</ul>
+				</div>
+				<div class="col-md-9">
+					<div class="jumbotron">
+						<center>
+							Bienvenue <?= $_SESSION['pseudo'];?>
+						</center>
+					</div>
+				</div>
+  <br>
+		<div class="row">
+			<div class="col-md-offset-2 col-md-9">
+				<?php 
+						
+					if(!isset($_GET['page'])){
+						$_GET['page'] = 'lo';
+					}
+								$_SESSION['nom_page'] = $_GET['page'];
+
+					include'../m/m_calendrier.php';
+					
+					if(isset($_POST['sess'])){
+							  $requete = $bdd->prepare('SELECT * FROM clients WHERE id = :id');
+					$requete->execute(array('id'=> $_SESSION['test']));
+					$donne= $requete->fetch();
+					echo '<br>'.$donne['prenom'].' '.$donne['nom'].'<br>'.$donne['mail'].'<br>'.$donne['telephone'].'<br>';
+			   
+					}   
+				?>
+			</div>
+		</div>
+		</div>
 	</div>
 	</body>
 </html>

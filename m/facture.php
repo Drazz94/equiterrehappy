@@ -12,7 +12,7 @@
     $telephone = $_POST['telephone'];
     $service = $_POST['service'];
 
-    $req = $bdd->query('INSERT INTO factures(clients_id) VALUES('.$id.')');
+    $req = $bdd->query('INSERT INTO factures(clients_id,etat) VALUES('.$id.',0)');
     $id_facture = $bdd->lastInsertId();
 
     $facture = array('id_facture' => $id_facture);

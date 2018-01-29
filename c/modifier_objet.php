@@ -19,7 +19,7 @@
 			echo $resultat;
 		}
 	} else if ($page == 'chevaux') {
-		if(empty($_POST['nom']) || empty($_POST['age']) || empty($_POST['besoins'])|| empty($_POST['proprio']) || empty($_POST['pourcentage'])) {
+		if(empty($_POST['nom']) || empty($_POST['age']) || empty($_POST['besoins'])) {
 
 			echo '<div class="container">ATTENTION ! Vous n\'avez pas rempli tous les champs</div>';
 

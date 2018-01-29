@@ -1,7 +1,7 @@
 <?php
   require('../m/facture.php');
   include('../v/facture.php');
-  require('../m/insert_montant.php');
+  require('../m/insert_facture.php');
 
   $id = $_POST['id'];
   $date = $_POST['date'];
@@ -11,6 +11,7 @@
   $mail = $_POST['mail'];
   $telephone = $_POST['telephone'];
   $service = $_POST['service'];
+  $adresse = $_POST['adresse'];
 
   $informations = array(
     'id' => $id,
@@ -118,6 +119,25 @@
                                 Créée le: '.$date.' '.$date1.'<br>
                             </td>
                         </tr>
+                        <tr class="information">
+                          <td colspan="2">
+                              <table>
+                                  <tr>
+                                      <td>
+                                          '.$nom.' '.$prenom.'<br>
+                                          '.$adresse.'<br>
+                                          '.$mail.'<br>
+                                          '.$telephone.'<br>
+                                      </td>
+                                      <td>
+                                          EQUITERREHAPPY<br>
+                                          74 rue Maurice Thorez<br>
+                                          94200 IVRY-SUR-SEINE<br>
+                                      </td>
+                                  </tr>
+                              </table>
+                          </td>
+                      </tr>
                     </table>
                 </td>
             </tr>';
@@ -179,6 +199,8 @@
             </tr>
           </table>
       </div><br><br>
+      <center><a href="../v/accueil.php"><button>Retour à l\'accueil</button></a></center>
+      <br><br>
     </body>
     </html>
     ';

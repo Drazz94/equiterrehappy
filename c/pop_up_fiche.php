@@ -10,7 +10,7 @@
 		while($fetch = $req->fetch()) {
 			$champs[] = $fetch['column_name'];
 		}
-		$clic = '<a class = "lien_id" href = "" data-toggle="modal" data-target="#'.$donnees['id'].'">'.$donnees['id'].'</a>';
+		$clic = '<a class="lien_id" href = "" data-toggle="modal" data-target="#'.$donnees['id'].'">'.$donnees['id'].'</a>';
 
 		echo
 			'<td>
@@ -22,13 +22,17 @@
 								<button type="button" class="close" data-dismiss="modal" aria-label="Close">
 									<span aria-hidden="true">&times;</span>
 								</button>
-							</div>
+							</div>';
+							if ($page=="clients") {
+							echo '
 							<div class="modal-body">
 								<form action="../c/acte_de_vente.php" method="POST">
 									<input type="hidden" name="id" value="'.$donnees['id'].'">
 									<input type="submit" name="valider" value="Acte de vente">
 								</form>
-								<br>
+								<br>';
+							};
+							echo '
 								<form action="../c/modifier_objet.php" method="POST">
 									<input type="hidden" value="'.$donnees['id'].'" name="id">
 									<input type="hidden" value="'.$page.'" name="page">';

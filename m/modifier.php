@@ -32,7 +32,7 @@
 						'mail' => $mail,
 						'telephone' =>$tel
 					));
-
+	
 					$resultat = '<div class="container"><u>Client Modifié</u></div>';
 					
 					
@@ -70,64 +70,21 @@
 			}
 		} else if($page == 'chevaux') {
 			
-			if(preg_match('#^[a-z0-9._-]+@[a-z0-9._-]{2,}\.[a-z]{2,4}$#i', $_POST['proprio'])){
 				$nom = htmlspecialchars($_POST['nom']);				
 				$age = htmlspecialchars($_POST['age']);
 				$besoins = htmlspecialchars($_POST['besoins']);
-				$proprio = htmlspecialchars($_POST['proprio']);
-				$pourcentage = htmlspecialchars($_POST['pourcentage']);
-				
-				$req = $bdd->prepare('SELECT c.mail,c.nom,ch.nom
-						FROM clients c 
-						JOIN posseder p on c.id = p.clients_id
-						JOIN chevaux ch on ch.id = p.chevaux_id
-						WHERE c.mail = :mail
-						AND ch.nom = :nom');
-				$req -> execute(array(
-						'mail' => $proprio,
-						'nom' => $nom
-					));
-				$result = $req->fetch();
-				
-				if(!empty($result)){
-				
-					$resultat = '<div class="container">Le cheval existe deja dans la base de données.</div>';
-				
-				} else {
-					//on ajoute le cheval dans la base de données
-					$req = $bdd ->prepare('INSERT INTO chevaux(nom, age, besoins) VALUES(:nom, :age, :besoins)');
+
+
+					$req = $bdd ->prepare('UPDATE chevaux SET nom= :nom, age= :age, besoins= :besoins WHERE id = '.$id);
 					$req->execute(array(
 						'nom' => $nom,
 						'age' => $age,
 						'besoins' => $besoins
 					));
-					
-					//on va chercher l'id du client
-					$req1 = $bdd->prepare('SELECT id FROM clients WHERE mail = :proprio');
-					$req1 -> execute(array(
-							'proprio' => $proprio
-						));
-					$c_id = $req1->fetch();
-					
-					//on va chercher l'id du cheval qui vient d'être ajouté
-					$req2 = $bdd->prepare('SELECT id FROM chevaux WHERE nom = :nom');
-					$req2 -> execute(array(
-							'nom' => $nom
-					));
-					$ch_id = $req2->fetch();
-					
-					//on ajoute le pourcentage d'appartenance
-					$req3 = $bdd->prepare('INSERT INTO posseder(clients_id,chevaux_id,pourcentage) VALUES (:c_id,:ch_id,:pourcentage)');
-					$req3 -> execute(array(
-							'c_id' => $c_id['id'],
-							'ch_id' => $ch_id['id'],
-							'pourcentage' => $pourcentage
-					));
-					$resultat = '<div class="container">Enregistrement terminé</div>';
-				}
-			} else {
-				$resultat = '<div class="container">Adresse mail non valide</div>';
-			}
+		
+					$resultat = '<div class="container">Cheval Modifié</div>';
+		
+
 		} else if($page == 'produits') {
 			
 			if(preg_match('#^[a-z0-9._-]+@[a-z0-9._-]{2,}\.[a-z]{2,4}$#i', $_POST['fournisseur'])){
